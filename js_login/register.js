@@ -52,7 +52,8 @@ userPool.signUp(username, password, attributeList, null, function(err, result){
             Item: {
                 "email" : {'S':email},
                 "health": {'S': ""},
-                "face": {"N": '1'}
+                "face": {"N": '1'},
+                "temperature": {"S": ""}
             }
         };
 
