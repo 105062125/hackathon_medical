@@ -314,7 +314,7 @@ function sendtoDB() {
             console.log('Error adding item to database: ', err);
           } else {
             console.log('Form data added to database.');
-             
+            alert("success!!")
           }
         });
     });
