@@ -35,18 +35,37 @@ function dbConsumer() {
                       var html = "";
                       $('.patientContent').html(html);
                       var span = document.getElementsByClassName("close")[0];
-                      
-                      // var x = $(this).attr('health');
                       var x = element.health;
                       var voice = element.health_voice;
-                      var Arr = x.split("/");
-                      for(i = 0;i < Arr.length;i++){
-                        console.log(i);
-                        console.log(Arr[i]);
-                        var format = Arr[i].split(':');
-                        // <pre style="text-align: left;">Time : health condition</pre>
-                        html += '<pre style="text-align: left;">' + format[0] + ': ' + format[1] + '</pre>';
+                      if(x == undefined){
+                        alert("尚未上傳病況");
                       }
+                      var Arr = x.split("/");
+                      if(element.temparature == undefined){
+                        for(i = 0;i < Arr.length;i++){
+                          console.log(i);
+                          console.log(Arr[i]);
+                          var format = Arr[i].split(':');
+                          html += '<pre style="text-align: left;">' + format[0] + ': ' + format[1] + '<div>temparature: </div></pre>';
+                        }
+                      }
+                      else{
+                        var tempArray = element.temparature;
+                        for(i = 0;i < Arr.length;i++){
+                          console.log(i);
+                          console.log(Arr[i]);
+                          var format = Arr[i].split(':');
+                          var temp;
+                          if(tempArray[i] != undefined){
+                            temp = tempArray[i].split(':')[1];
+                          }
+                          else{
+                            temp = "";
+                          }
+                          html += '<pre style="text-align: left;">' + format[0] + ': ' + format[1] + '<div>temparature: ' + temp + '</div></pre>';
+                        }
+                      }
+                      
                       html += '<pre style="text-align: left;">' + voice + '</pre>';
                       $('.patientContent').html(html);
                       modal.style.display = "block";

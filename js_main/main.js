@@ -23,6 +23,11 @@ $(document).ready(function(){
   });
 
 function StoreCondition(){
+    console.log($('#checkBox').prop("checked"));
+    if($('#checkBox').prop("checked") == false){
+      alert("請先上傳體溫");
+      return;
+    }
       var data = { 
         UserPoolId : _config.cognito.userPoolId,
           ClientId : _config.cognito.clientId
@@ -136,10 +141,4 @@ function StoreCondition(){
         
               });
         }
-
-
-
-
-
-
 }
