@@ -130,6 +130,7 @@ function StoreCondition(){
                   console.log('Error adding item to database: ', err);
                 } else {
                   console.log('Form data added to database.');
+                  $('#Health_condition_type').val("");
                    
                 }
               });
@@ -142,5 +143,4 @@ function StoreCondition(){
               });
         }
         alert("upload success!");
-        $('#Health_condition_type').val("");
 }
