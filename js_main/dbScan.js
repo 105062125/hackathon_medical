@@ -41,7 +41,7 @@ function dbConsumer() {
                         alert("尚未上傳病況");
                       }
                       var Arr = x.split("/");
-                      if(element.temparature == undefined){
+                      if(element.temperature == undefined){
                         for(i = 0;i < Arr.length - 1;i++){
                           console.log(i);
                           console.log(Arr[i]);
@@ -50,14 +50,16 @@ function dbConsumer() {
                         }
                       }
                       else{
-                        var tempArray = element.temparature;
-                        for(i = 0;i < Arr.length;i++){
+                        var tempArray = element.temperature.split('/');
+                        for(i = 0;i < Arr.length-1;i++){
                           console.log(i);
                           console.log(Arr[i]);
                           var format = Arr[i].split(':');
                           var temp;
                           if(tempArray[i] != undefined){
                             temp = tempArray[i].split(':')[1];
+                            if(temp == undefined)
+                              temp = "";
                           }
                           else{
                             temp = "";
