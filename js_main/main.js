@@ -141,4 +141,6 @@ function StoreCondition(){
         
               });
         }
+        alert("upload success!");
+        $('#Health_condition_type').val("");
 }
