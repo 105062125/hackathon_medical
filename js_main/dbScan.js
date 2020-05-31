@@ -42,7 +42,7 @@ function dbConsumer() {
                       }
                       var Arr = x.split("/");
                       if(element.temparature == undefined){
-                        for(i = 0;i < Arr.length;i++){
+                        for(i = 0;i < Arr.length - 1;i++){
                           console.log(i);
                           console.log(Arr[i]);
                           var format = Arr[i].split(':');
@@ -65,8 +65,10 @@ function dbConsumer() {
                           html += '<pre style="text-align: left;">' + format[0] + ': ' + format[1] + '<div>temparature: ' + temp + '</div></pre>';
                         }
                       }
+                      if(voice != undefined){
+                        html += '<pre style="text-align: left;">' + voice + '</pre>';
+                      }
                       
-                      html += '<pre style="text-align: left;">' + voice + '</pre>';
                       $('.patientContent').html(html);
                       modal.style.display = "block";
 
